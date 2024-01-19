@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css">
+        <link rel="icon" href="img/git_icon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+        <meta name="keywords" content="danielle8farias, checkout, git, commit, head, linux, tutorial">
+        <title>git checkout</title>
+    </head>
+    <body>
+        <div class="corpo-central">
+            <div class="titulo">
+                <h1>&gt;_ git checkout: Navegando entre ramos e snapshots, e descartando modificações</h1>
+            </div>
+            <article class="caixa-texto">
+                <h2>
+                    Mudando de branch (ramo)
+                </h2>
+                <p>
+                    Para mudar de um determinado ramo, digite:
+                </p>
+                <code class="caixa-codigo">
+                    $ git checkout &lt;nome_do_ramo&gt;
+                </code>
+                <ul class="observacao">
+                    <li>
+                        <strong>$</strong> indica que você deve usar o <strong>usuário comum</strong> para fazer essa operação.
+                    </li>
+                    <li>
+                        escolha o nome do ramo que você deseja, sem os sinais <strong>&lt; &gt;</strong>.
+                    </li>
+                </ul>
+                <p>
+                    Ao voltar para um determinado branch, o ponteiro <strong>head</strong> estará no <strong>último commit</strong> feito nesse ramo.
+                </p>
+                <ul class="observacao">
+                    <li>
+                        O <strong>HEAD</strong> é um ponteiro no branch que normalmente aponta para o último commit feito.
+                    </li>
+                </ul>
+                <h2>
+                    Navegando entre snapshots dos commits
+                </h2>
+                <p>
+                    Às vezes é necessário verificar com detalhes quais modificações foram feitas no seu código/projeto. Então para navegar entre os <strong>snapshots</strong> fazemos:
+                </p>
+                <code class="caixa-codigo">
+                    $ git checkout &lt;chave_do_commit&gt;
+                </code>
+                <p>
+                    O que esse comando faz é apontar o <strong>HEAD</strong> para um determinado <strong>commit</strong>.
+                </p>
+                <p>
+                    Para voltar um <strong>commit</strong> anterior, digite:
+                </p>
+                <code class="caixa-codigo">
+                    $ git checkout HEAD~1
+                </code>
+                <ul class="observacao">
+                    <li>
+                        <strong>HEAD~1</strong> desloca o ponteiro HEAD para o <strong>commit anterior</strong> ao atual.
+                    </li>
+                </ul>
+                <p>
+                    Aqui é importante notar que será criado um <strong>branch temporário</strong>.
+                </p>
+                <p>
+                    Você pode confirmar isso através do comando
+                </p>
+                <code class="caixa-codigo">
+                    $ git branch
+                </code>
+                <p>
+                    Exemplo:
+                </p>
+                <img class="exemplo" src="img/p0015-0.png" alt="branch temporária">
+                <p>
+                    Nesse ponto, você estará visualizando as alterações que foram feitas até esse <strong>commit</strong>.
+                </p>
+                <p>
+                    Após a visualização de todo o conteúdo do(s) arquivo(s), você pode voltar ao ramo principal com o comando:
+                </p>
+                <code class="caixa-codigo">
+                    $ git checkout &lt;nome_do_seu_branch_principal&gt;
+                </code>
+                <p>
+                    Exemplo:
+                </p>
+                <img class="exemplo" src="img/p0015-1.png" alt="voltando ao ramo master">
+                <p>
+                    Aqui podemos ver uma mensagem onde é mostrado em que posição o ponteiro HEAD estava, ou seja, de onde viemos.
+                </p>
+                <p>
+                    Exemplo de uso do checkout:
+                </p>
+                <p>
+                    Temos no nosso ramo master os seguintes arquivos
+                </p>
+                <img class="exemplo" src="img/p0015-2.png" alt="listando arquivos no ramo master">
+                <p>
+                    E queremos verificar o projeto no ponto indicado pela imagem abaixo
+                </p>
+                <img class="exemplo" src="img/p0015-3.png" alt="git log">
+                <p>
+                    Sendo assim, fazemos
+                </p>
+                <img class="exemplo" src="img/p0015-4.png" alt="usando o checkout para ver um determinado commit">
+                <p>
+                    Verificando novamente os arquivos do projeto, temos
+                </p>
+                <img class="exemplo" src="img/p0015-5.png" alt="listando os arquivo novamente">
+                <p>
+                    Podemos perceber que temos alguns arquivos a mais que não tínhamos quando o <strong>ponteiro HEAD</strong> estava no <strong>último commit</strong>.
+                </p>
+                <p>
+                    Aqui podemos ver todo o projeto como ele estava num <strong>commit passado</strong>. E então retornamos ao ramos principal.
+                </p>
+                <h2>
+                    Fazendo alterações
+                </h2>
+                <p>
+                    Caso seja necessário alterações no projeto em um snapshot passado, basta fazer um commit após essas alterações.
+                </p>
+                <p>
+                    Para não perder as informações é necessário criar um novo <strong>branch</strong>, dessa maneira:
+                </p>
+                <code class="caixa-codigo">
+                    $ git branch &lt;nome_do_novo_ramo&gt; &lt;chave_do_útimo_commit&gt;
+                </code>
+                <p>
+                    Em seguida basta ir até o novo <strong>branch</strong> criado com o comando
+                </p>
+                <code class="caixa-codigo">
+                    $ git checkout &lt;nome_do_novo_ramo&gt;
+                </code>
+                <p>
+                    E, caso seja preciso, fazer o <strong>merge</strong> com o branch principal.
+                </p>
+                <p>
+                    Exemplo:
+                </p>
+                <p>
+                    Pegando o mesmo exemplo anterior, fiz um commit após algumas alterações.
+                </p>
+                <img class="exemplo" src="img/p0015-6.png" alt="commit no branch temporário">
+                <p>
+                    Observe que após o <strong>commit</strong> houve uma mudança na chave
+                </p>
+                <img class="exemplo" src="img/p0015-7.png" alt="estado do git após o commit">
+                <p>
+                    Como podemos perceber, essa é a chave do commit feito há pouco
+                </p>
+                <img class="exemplo" src="img/p0015-8.png" alt="git log">
+                <p>
+                    Para que esse commit não seja perdido, temos que criar um novo branch com essa chave nova, assim
+                </p>
+                <img class="exemplo" src="img/p0015-9.png" alt="branch nova e chave nova">
+                <p>
+                    Aqui, podemos confirmar que o novo branch foi criado
+                </p>
+                <img class="exemplo" src="img/p0015-10.png" alt="git branch">
+                <p>
+                    Agora só precisamos voltar ao ramo principal
+                </p>
+                <img class="exemplo" src="img/p0015-11.png" alt="voltando ao ramo principal">
+                <p>
+                    O que aconteceu aqui, no fluxo do Git, é algo semelhante ao mostrado na imagem abaixo.
+                </p>
+                <img class="fluxo-git" src="img/p0015-12.png" alt="fluxo do git">
+                <h2>
+                    Observação:
+                </h2>
+                <ul class="observacao">
+                    <li>
+                        Recomenda-se usar o <strong>checkout</strong> para visualizar as snapshots dos commits apenas quando o <strong>Working directory</strong> estiver limpo, para evitar conflitos.
+                    </li>
+                </ul>
+                <img class="exemplo" src="img/p0015-13.png" alt="working directory limpo">
+                <h2>
+                    Descartando modificações
+                </h2>
+                <p>
+                    O checkout também pode ser usado para descartar as modificações feitas em um arquivo, assim
+                </p>
+                <code class="caixa-codigo">
+                    $ git checkout &lt;nome_do_arquivo&gt;
+                </code>
+                <p>
+                    Exemplo:
+                </p>
+                <p>
+                    Temos dois arquivos que foram modificados e queremos descartar as modificações (voltando ao arquivo anterior as mudanças).
+                </p>
+                <img class="exemplo" src="img/p0015-14.png" alt="dois arquivos modificados">
+                <p>
+                    Usando com comando <code class="caixa-codigo-inline">git checkout</code> com os dois arquivos ao mesmo tempo:
+                </p>
+                <img class="exemplo" src="img/p0015-15.png" alt="usando o checkout para descartar alterações">
+            </article>
+            <nav>
+                <div class="nav-esquerda">
+                    <a href="p0014_branch.html">
+                        &lt; anterior
+                    </a>
+                </div>
+                <div>
+                    <a href="index.html">
+                        voltar ao índice
+                    </a>
+                </div>
+                <div class="nav-direita">
+                    <a href="p0016_reset.html">
+                        próximo &gt;
+                    </a>
+                </div>
+            </nav>
+            <footer>
+                    by danielle8farias
+            </footer>
+        </div>
+    </body>
+</html>

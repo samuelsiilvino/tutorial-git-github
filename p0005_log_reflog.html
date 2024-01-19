@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css">
+        <link rel="icon" href="img/git_icon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+        <meta name="keywords" content="danielle8farias, log, git, reflog, linux, tutorial">
+        <title>git log/reflog</title>
+    </head>
+    <body>
+        <div class="corpo-central">
+            <div class="titulo">
+                <h1>&gt;_ git log/reflog: Verificando o histórico do Git</h1>
+            </div>
+            <article class="caixa-texto">
+                <p>
+                    Para ver o histórico de commits do <strong>Git</strong>, digite:
+                </p>
+                <code class="caixa-codigo">
+                    $ git log
+                </code>
+                <ul class="observacao">
+                    <li>
+                        <strong>$</strong> indica que você deve usar o <strong>usuário comum</strong> para fazer essa operação.
+                    </li>
+                </ul>
+                <p>
+                    E o retorno será todos os <strong>commits</strong> feitos até o momento.
+                </p>
+                <img class="exemplo" src="img/p0005-0.png" alt="mostrando todos os commits">
+                <p>
+                    Pressione <strong>[ENTER]</strong> quantas vezes forem necessárias para ver os outros commits (isso ocorre quando o número de commits é maior do que o espaço ocupado pelo terminal) e ao final, quando aparecer a palavra <strong>(END)</strong>, pressione a letra <strong>q</strong> para sair.
+                </p>
+                <img class="exemplo" src="img/p0005-1.png" alt="final da lista do histórico de commits">
+                <p>
+                    Caso queira ver esse histórico numa versão mais resumida, use a flag apresentada abaixo:
+                </p>
+                <code class="caixa-codigo">
+                    $ git log --oneline
+                </code>
+                <img class="exemplo" src="img/p0005-2.png" alt="usando a flag oneline">
+                <p>
+                    Caso queira ver apenas os 4 últimos <strong>commits</strong>,
+                </p>
+                <code class="caixa-codigo">
+                    $ git log -4
+                </code>
+                <img class="exemplo" src="img/p0005-3.png" alt="4 últimos commits">
+                <p>
+                    Você pode substituir o número 4 por outro número inteiro, conforme a necessidade.
+                </p>
+                <p>
+                    Também é possível fazer uma combinação desses comandos. Exemplo:
+                </p>
+                <p>
+                    Usando o git log em combinação com a flag oneline.    
+                </p>
+                <img class="exemplo" src="img/p0005-4.png" alt="usando o git log em combinação com a flag oneline">
+                <p>
+                    Para ver o histórico de tudo que foi feito (não apenas commits),
+                </p>
+                <code class="caixa-codigo">
+                    $ git reflog
+                </code>
+                <img class="exemplo" src="img/p0005-5.png" alt="usando o reflog">
+                <p>
+                    Esse comando é muito útil para usar com o <strong>reset</strong> quando você precisa recuperar algo que foi perdido por acidente, seja depois de um <strong>merge</strong> ou próprio <strong>reset</strong> problemático, algo que quebrou ou foi excluído e até mesmo recuperar um <strong>branch</strong> excluído. Ele é como uma máquina do tempo mais potente do que o <strong>log</strong>.
+                </p>
+                <code class="caixa-codigo">
+                    $ git reset HEAD@{número_do_índice}
+                </code>
+                <p>
+                    Entretanto, o <strong>reflog</strong> tem 90 dias de prazo de validade padrão.
+                </p>
+            </article>
+            <nav>
+                <div class="nav-esquerda">
+                    <a href="p0004_commit.html">
+                        &lt; anterior
+                    </a>
+                </div>
+                <div>
+                    <a href="index.html">
+                        voltar ao índice
+                    </a>
+                </div>
+                <div class="nav-direita">
+                    <a href="p0006_amend.html">
+                        próximo &gt;
+                    </a>
+                </div>
+            </nav>
+            <footer>
+                    by danielle8farias
+            </footer>
+        </div>
+    </body>
+</html>

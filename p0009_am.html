@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css">
+        <link rel="icon" href="img/git_icon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+        <meta name="keywords" content="danielle8farias, git, arquivo modificado, add, commit -a, commit -am, tutorial, linux">
+        <title>git -am</title>
+    </head>
+    <body>
+        <div class="corpo-central">
+            <div class="titulo">
+                <h1>&gt;_ git -am: Atualizando arquivo(s) modificado(s) no Git</h1>
+            </div>
+            <article class="caixa-texto">
+                <p>
+                    Para atualizar um arquivo que foi modificado no repositório, existem dois caminhos.
+                </p>
+                <code class="caixa-codigo">
+                    $ git add &lt;nome_do_arquivo&gt;
+                </code>
+                <ul class="observacao">
+                    <li>
+                        <strong>$</strong> indica que você deve usar o <strong>usuário comum</strong> para fazer essa operação.
+                    </li>
+                    <li>
+                        <strong>add</strong> para adicionar ao <strong>index</strong> o(s) arquivo(s) que virá(ão) em seguida.
+                    </li>
+                    <li>
+                        digite o nome do arquivo sem os sinais <strong>&lt; &gt;</strong>.
+                    </li>
+                </ul>
+                <p>
+                    seguido do <strong>commit</strong>
+                </p>
+                <code class="caixa-codigo">
+                    $ git commit -m 'sua mensagem aqui'
+                </code>
+                <p>
+                    Exemplo:
+                </p>
+                <p>
+                    Aqui temos o arquivo <strong>index.html</strong> que foi modificado.
+                </p>
+                <img class="exemplo" src="img/p0009-0.png" alt="arquivo modificado">
+                <p>
+                    Adicionando o arquivo com o comando <code class="caixa-codigo-inline">git add</code>
+                </p>
+                <img class="exemplo" src="img/p0009-1.png" alt="git add no arquivo modificado">
+                <p>
+                    E fazendo o <strong>commit</strong>
+                </p>
+                <img class="exemplo" src="img/p0009-2.png" alt="fazendo o commit do arquivo">
+                <h2>
+                    Atalho
+                </h2>
+                <p>
+                    Também é possível fazer o <strong>commit das modificações</strong> através de um <strong>atalho</strong>:
+                </p>
+                <code class="caixa-codigo">
+                    $ git commit -am 'adição de modificação do arquivo'
+                </code>
+                <p>
+                    O parâmetro <strong>-a adiciona todos os arquivos que foram modificados</strong>, sem a necessidade de adicionar cada um individualmente.
+                </p>
+                <p>
+                    Exemplo:
+                </p>
+                <p>
+                    Aqui temos vários arquivos modificados
+                </p>
+                <img class="exemplo" src="img/p0009-3.png" alt="vários arquivos modificados">
+                <p>
+                    Usando o atalho
+                </p>
+                <img class="exemplo" src="img/p0009-4.png" alt="usando o atalho">
+                <p>
+                    <strong>Observação:</strong>
+                </p>
+                <ul class="observacao">
+                    <li>
+                        É importante notar que se houver um arquivo novo (ainda não rastreado pelo <strong>Git</strong>) o comando <code class="caixa-codigo-inline">git commit -am</code> faz a adição do commit <strong>apenas dos arquivos já rastreados que foram modificados</strong>.
+                    </li>
+                </ul>
+                <p>
+                    Exemplo:
+                </p>
+                <p>
+                    Temos um arquivo que foi modificado (<strong>nintendo64.html</strong>) e um arquivo novo (<strong>estilo-mobile.css</strong>) ainda não rastreado.
+                </p>
+                <img class="exemplo" src="img/p0009-5.png" alt="arquivo modificado e outro não rastreado">
+                <p>
+                    Usando o atalho <code class="caixa-codigo-inline">git commit -am</code> podemos perceber que somente o arquivo modificado foi mandado ao <strong>index</strong>.
+                </p>
+                <img class="exemplo" src="img/p0009-6.png" alt="fazendo o commit, através do atalho, do arquivo modificado">
+                <h2>Descartando modificações</h2>
+                <p>Caso queira descartar as modificações feitas em um arquivo, basta digitar</p>
+                <code class="caixa-codigo">
+                    $ git checkout &lt;nome_do_arquivo&gt;
+                </code>
+                <p>
+                    Exemplo:
+                </p>
+                <p>
+                    Temos dois arquivos que foram modificados e queremos descartar as modificações (voltando ao arquivo anterior as mudanças).
+                </p>
+                <img class="exemplo" src="img/p0009-7.png" alt="dois arquivos modificados">
+                <p>
+                    Usando com comando <code class="caixa-codigo-inline">git checkout</code> com os dois arquivos ao mesmo tempo:
+                </p>
+                <img class="exemplo" src="img/p0009-8.png" alt="usando o checkout para descartar alterações">
+            </article>
+            <nav>
+                <div class="nav-esquerda">
+                    <a href="p0008_diff.html">
+                        &lt; anterior
+                    </a>
+                </div>
+                <div>
+                    <a href="index.html">
+                        voltar ao índice
+                    </a>
+                </div>
+                <div class="nav-direita">
+                    <a href="p0010_ignore.html">
+                        próximo &gt;
+                    </a>
+                </div>
+            </nav>
+            <footer>
+                    by danielle8farias
+            </footer>
+        </div>
+    </body>
+</html>

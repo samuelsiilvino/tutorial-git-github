@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css">
+        <link rel="icon" href="img/git_icon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+        <meta name="keywords" content="danielle8farias, git, gitk, visualização, grafo, gráfico, linux, tutorial">
+        <title>gitk</title>
+    </head>
+    <body>
+        <div class="corpo-central">
+            <div class="titulo">
+                <h1>Visualizando o commit no modo gráfico</h1>
+            </div>
+            <article class="caixa-texto">
+                <p>
+                    A depender do tamanho do projeto, a visualização dos commits pelo terminal pode ser difícil. Para fazer a visualização mais legível, precisamos instalar o <strong>Git repository browser</strong>.
+                </p>
+                <code class="caixa-codigo">
+                    $ sudo apt install gitk
+                </code>
+                <ul class="observacao">
+                    <li>
+                        <strong>$</strong> indica que você deve usar o <strong>usuário comum</strong> para fazer essa operação.
+                    </li>
+                    <li>
+                        <strong>sudo</strong> é o comando que dá permissões de <strong>super usuário</strong> temporariamente; assim é possível fazer a instalação de programas.
+                    </li>
+                    <li>
+                        <strong>apt</strong> do inglês, <em>Advanced Package Tool</em>, em português, <strong>Ferramenta de Empacotamento Avançada</strong>; é a ferramenta que nos ajuda na instalação, atualização e desinstalação de programas, entre outras funções.
+                    </li>
+                    <li>
+                        <strong>install</strong> é o comando de instalar, indicando ao <strong>apt</strong> o que fazer.
+                    </li>
+                </ul>
+                <p>
+                    Assim ao digitar no terminal
+                </p>
+                <code class="caixa-codigo">
+                    $ gitk
+                </code>
+                <p>
+                    A seguinte janela abrirá:
+                </p>
+                <img class="exemplo" src="img/p0011-0.png" alt="visualização gráfica do fluxo do git">
+                <h2>
+                    Visualizando grafo de commits
+                </h2>
+                <p>
+                    Outra maneira de visualizar o grafo de commits, porém sem instalar nada é através do comando:
+                </p>
+                <code class="caixa-codigo">
+                    $ git log --graph
+                </code>
+                <p>
+                    Abaixo, um exemplo do retorno.
+                </p>
+                <img class="exemplo" src="img/p0011-1.png" alt="grafo commit">
+            </article>
+            <nav>
+                <div class="nav-esquerda">
+                    <a href="p0010_ignore.html">
+                        &lt; anterior
+                    </a>
+                </div>
+                <div>
+                    <a href="index.html">
+                        voltar ao índice
+                    </a>
+                </div>
+                <div class="nav-direita">
+                    <a href="p0012_delete_arquivo.html">
+                        próximo &gt;
+                    </a>
+                </div>
+            </nav>
+            <footer>
+                    by danielle8farias
+            </footer>
+        </div>
+    </body>
+</html>

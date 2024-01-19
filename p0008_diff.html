@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css">
+        <link rel="icon" href="img/git_icon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+        <meta name="keywords" content="danielle8farias, git, diff, staged, log, tutorial, linux">
+        <title>git diff</title>
+    </head>
+    <body>
+        <div class="corpo-central">
+            <div class="titulo">
+                <h1>&gt;_ git diff: Verificando modificações no repositório</h1>
+            </div>
+            <article class="caixa-texto">
+                <p>
+                    Para saber o que foi modificado em um arquivo rastreado do repositório, mas que ainda não foi adicionado um commit sobre, usamos o comando:
+                </p>
+                <code class="caixa-codigo">
+                    $ git diff
+                </code>
+                <ul class="observacao">
+                    <li>
+                        <strong>$</strong> indica que você deve usar o <strong>usuário comum</strong> para fazer essa operação.
+                    </li>
+                </ul>
+                <p>
+                    Exemplo:
+                </p>
+                <p>
+                    Temos o arquivo inicial abaixo
+                </p>
+                <img class="exemplo" src="img/p0008-0.png" alt="arquivo html sem as modificações">
+                <p>
+                    Em seguida, fizemos as seguintes modificações
+                </p>
+                <img class="exemplo" src="img/p0008-1.png" alt="arquivo html com as modificações">
+                <p>
+                    Ao digitar o comando <strong>diff</strong>, temos:
+                </p>
+                <img class="exemplo" src="img/p0008-2.png" alt="usando o comando git diff">
+                <p>
+                    Assim podemos ver (escrito em <span id="verde">verde</span>) quais partes do arquivo foram <strong>adicionadas</strong>. 
+                </p>
+                <img class="exemplo" src="img/p0008-3.png" alt="partes em verde adicionadas no arquivo">
+                <p>
+                    Em <span id="vermelho">vermelho</span>, as partes que foram <strong>retiradas ou modificadas</strong>. 
+                </p>
+                <img class="exemplo" src="img/p0008-4.png" alt="partes em verde adicionadas no arquivo">
+                <p>
+                    E o que está escrito com a cor <strong>branca</strong> aquilo que foi <strong>mantido</strong> (não houve modificação).
+                </p>
+                <img class="exemplo" src="img/p0008-5.png" alt="partes em verde adicionadas no arquivo">
+                <p>
+                    O comando
+                </p>
+                <code class="caixa-codigo">
+                    $ git diff HEAD
+                </code>
+                <p>
+                    É semelhante ao que usamos anteriormente.
+                </p>
+                <p>
+                    No cabeçalho, temos que <strong>11 linhas foram subtraídas ou modificadas a partir da linha 1</strong> e também <strong>11 linhas foram adicionadas a partir da primeira</strong>, conforme podemos ver em destaque na imagem abaixo.
+                </p>
+                <img class="exemplo" src="img/p0008-6.png" alt="linhas modificadas e adicionadas">
+                <p>
+                    Temos também os marcadores de modificação, que o git chama de <strong>a</strong> e <strong>b</strong>. Sendo <strong>a</strong> o arquivo como ele estava anteriormente e <strong>b</strong> o arquivo atual.
+                </p>
+                <img class="exemplo" src="img/p0008-7.png" alt="marcadores de comparação">
+                <p>
+                    Ao adicionar o arquivo com o comando <code class="caixa-codigo-inline">git add</code> se usarmos o <code class="caixa-codigo-inline">git diff</code> novamente, não será retornado nada.
+                </p>
+                <img class="exemplo" src="img/p0008-8.png" alt="sem retorno após ir para o index">
+                <p>
+                    Para verificar as mudanças desse arquivo (que agora está no <strong>index</strong>) usamos o comando:
+                </p>
+                <code class="caixa-codigo">
+                    $ git diff --staged
+                </code>
+                <img class="exemplo" src="img/p0008-9.png" alt="diff staged">
+                <p>
+                    É importante notar que o comando <code class="caixa-codigo-inline">git diff</code> retorna as modificações de todos os arquivos. Caso queira que seja mostrado de apenas um arquivo em específico, digite:
+                </p>
+                <code class="caixa-codigo">
+                    $ git diff &lt;nome_do_arquivo&gt;
+                </code>
+                <ul class="observacao">
+                    <li>
+                        digite o nome do arquivo sem os sinais <strong>&lt; &gt;</strong>.
+                    </li>
+                </ul>
+                <h2>
+                    Histórico das modificações
+                </h2>
+                <p>
+                    O comando
+                </p>
+                <code class="caixa-codigo">
+                    $ git log -p
+                </code>
+                <p>
+                    faz a junção dos comandos <strong>log</strong> e <strong>diff</strong>; mostrando <strong>todas as alterações</strong> que foram feitas no(s) arquivo(s) rastreada(s) pelo Git. Pressione ENTER para descer a página e ao chegar ao fim, pressione <strong>q</strong> para sair.
+                </p>
+                <img class="exemplo" src="img/p0008-10.gif" alt="histórico das modificações">
+                <p>
+                    Com o comando
+                </p>
+                <code class="caixa-codigo">
+                    $ git log -p -&lt;n&gt;
+                </code>
+                <p>
+                    É possível ver um determinado número de históricos das modificações. Sendo o <strong>&lt;n&gt;</strong> o número de histórico de modificações que gostaria de ver, a partir do último (caso não queira ver tudo).
+                </p>
+                <img class="exemplo" src="img/p0008-11.gif" alt="histórico parcial das modificações">
+            </article>
+            <nav>
+                <div class="nav-esquerda">
+                    <a href="p0007_renomear_mover.html">
+                        &lt; anterior
+                    </a>
+                </div>
+                <div>
+                    <a href="index.html">
+                        voltar ao índice
+                    </a>
+                </div>
+                <div class="nav-direita">
+                    <a href="p0009_am.html">
+                        próximo &gt;
+                    </a>
+                </div>
+            </nav>
+            <footer>
+                    by danielle8farias
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css">
+        <link rel="icon" href="img/git_icon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+        <meta name="keywords" content="danielle8farias, git, log, commit, alteração, amend, tutorial, linux">
+        <title>git amend</title>
+    </head>
+    <body>
+        <div class="corpo-central">
+            <div class="titulo">
+                <h1>&gt;_ git amend: Corrigindo o último commit</h1>
+            </div>
+            <article class="caixa-texto">
+                <h2>
+                    Mensagem de commit errada
+                </h2>
+                <p>
+                    Para corrigir um <strong>commit</strong> usamos o comando
+                </p>
+                <code class="caixa-codigo">
+                    $ git commit --amend -m 'mensagem de correção aqui'
+                </code>
+                <p>
+                    ou
+                </p>
+                <code class="caixa-codigo">
+                    $ git commit -m 'mensagem de correção aqui' --amend
+                </code>
+                <p>
+                    Exemplo:
+                </p>
+                <p>
+                    Vamos supor que adicionei dois arquivos com os seguintes commits:
+                </p>
+                <code class="caixa-codigo">
+                    $ git add index.html estilo.css
+                </code>
+                <code class="caixa-codigo">
+                    $ git commit -m 'adicionando arquivo html e css'
+                </code>
+                <ul class="observacao">
+                    <li>
+                        <strong>$</strong> indica que você deve usar o <strong>usuário comum</strong> para fazer essa operação.
+                    </li>
+                    <li>
+                        <strong>add</strong> para adicionar arquivos ao <strong>index</strong>.
+                    </li>
+                    <li>
+                        <strong>commit</strong>> é quem vai levar os arquivos do <strong>index</strong> para o <strong>repositório git</strong>.
+                    </li>
+                    <li>
+                        <strong>m</strong> indica que você irá escrever uma mensagem para registrar o <strong>commit</strong>.
+                    </li>
+                    <li>
+                        a mensagem do <strong>commit</strong> vem entre <strong>aspas simples ou duplas</strong>.
+                    </li>
+                </ul>
+                <p>
+                    E em seguida, adiciono mais outro, mas com o <strong>commit errado</strong>:
+                </p>
+                <code class="caixa-codigo">
+                    $ git add script.js
+                </code>
+                <code class="caixa-codigo">
+                    $ git commit -m 'script python'
+                </code>
+                <p>
+                    Como é possível constatar, escrevi errado o commit desse arquivo.
+                </p>
+                <p>
+                    Antes de consertá-lo, vamos dar uma olhada nos commit feitos até agora:
+                </p>
+                <code class="caixa-codigo">
+                    $ git log
+                </code>
+                <img class="exemplo" src="img/p0006-0.png" alt="verificando as chaves dos commits feitos">
+                <p>
+                    Perceba que cada um tem sua própria chave (a sequência de caracteres com letras e números ao lado da palavra commit).
+                </p>
+                <p>
+                    Vamos modificar o **último commit** com o seguinte comando:
+                </p>
+                <code class="caixa-codigo">
+                    $ git commit --amend -m 'adicionando script js'
+                </code>
+                <p>
+                    Agora, vamos usar utilizar o comando <code class="caixa-codigo-inline">git log</code> para ver novamente os commits:
+                </p>
+                <img class="exemplo" src="img/p0006-1.png" alt="commit corrigido">
+                <p>
+                    Observe que a chave do nosso último commit é diferente da anterior (antes da correção).
+                </p>
+                <p>
+                    Para entender melhor o que aconteceu, vamos usar o comando <code class="caixa-codigo-inline">git reflog</code>
+                </p>
+                <img class="exemplo" src="img/p0006-2.png" alt="registro reflog">
+                <p>
+                    Com ele podemos verificar o nosso commit errado e a sua correção.
+                </p>
+                <p>
+                    No <strong>fluxo</strong> do git, temos:
+                </p>
+                <img class="fluxo-git" src="img/p0006-3.png" alt="fluxo do git mostrando commit amend">
+                <h2>
+                    Arquivo esquecido
+                </h2>
+                <p>
+                    Outro problema que pode ocorrer, e que também é resolvido com o comando <strong>--amend</strong>, é de adicionar arquivos ao repositório, dar commit, mas ter faltado um arquivo que você queria que fizesse parte desse commit.
+                </p>
+                <p>
+                    Exemplo:
+                </p>
+                <img class="exemplo" src="img/p0006-4.gif" alt="esquecendo de adicionar um arquivo">
+                <p>
+                    No exemplo acima, esquecemos de adicionar o arquivo <strong>playstation.html</strong>.
+                </p>
+                <p>
+                    Usando o comando <code class="caixa-codigo-inline">git log</code>, temos:
+                </p>
+                <img class="exemplo" src="img/p0006-5.png" alt="log de commits antes da correção">
+                <p>
+                    Fazendo a correção:
+                </p>
+                <img class="exemplo" src="img/p0006-6.gif" alt="usando amend para inserir arquivo esquecido">
+                <p>
+                    Usando <code class="caixa-codigo-inline">git log</code> novamente:
+                </p>
+                <img class="exemplo" src="img/p0006-7.png" alt="log de commits após a correção da adição de arquivos">
+                <h2>
+                    Pequenas alterações no arquivo
+                </h2>
+                <p>
+                    Caso você tenha acabado de fazer um <strong>commit</strong>, mas precisou fazer uma pequena alteração no arquivo logo em seguida, então digite:
+                </p>
+                <code class="caixa-codigo">
+                    $ git add &lt;nome_do_arquivo&gt;
+                </code>
+                <ul class="observacao">
+                    <li>
+                        digite o nome do arquivo sem os sinais <strong>&lt; &gt;</strong>.
+                    </li>
+                </ul>
+                <p>
+                    Para colocar as alterações no <strong>index</strong> e em seguida:
+                </p>
+                <code class="caixa-codigo">
+                    $ git commit --amend --no-edit
+                </code>
+                <p>
+                    Agora seu último <strong>commit</strong> contém a alteração do arquivo.
+                </p>
+                <ul class="observacao">
+                    <li>
+                        Atenção: não usar esse comando com commits que já foram enviados para o repositório remoto.
+                    </li>
+                </ul>
+            </article>
+            <nav>
+                <div class="nav-esquerda">
+                    <a href="p0005_log_reflog.html">
+                        &lt; anterior
+                    </a>
+                </div>
+                <div>
+                    <a href="index.html">
+                        voltar ao índice
+                    </a>
+                </div>
+                <div class="nav-direita">
+                    <a href="p0007_renomear_mover.html">
+                        próximo &gt;
+                    </a>
+                </div>
+            </nav>
+            <footer>
+                    by danielle8farias
+            </footer>
+        </div>
+    </body>
+</html>
